@@ -25,17 +25,6 @@ Quiz Cerdas Nusantara adalah permainan kuis interaktif berbasis web yang diranca
 - **CSS3**: Styling dan layout responsif.
 - **JavaScript (Vanilla)**: Logika permainan, timer, dan interaktivitas.
 
-## Instalasi dan Menjalankan
-1. Clone atau download repository ini.
-2. Buka file `index.html` di browser web apa saja (Chrome, Firefox, Safari, dll.).
-3. Tidak diperlukan server atau dependensi tambahan – permainan berjalan secara offline.
-
-## Struktur File
-- `index.html`: File utama yang berisi HTML, CSS, dan JavaScript untuk permainan.
-
-## Kontribusi
-Kontribusi sangat diterima! Jika Anda ingin menambah fitur, memperbaiki bug, atau menambah soal, silakan buat pull request atau issue di repository ini.
-
 ## Lisensi
 Proyek ini menggunakan lisensi MIT. Lihat file `LICENSE` untuk detail lebih lanjut.
 
