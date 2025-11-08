@@ -19,6 +19,10 @@
   .wrong {background:#f8d7da;border-color:#dc3545;}
   .feedback {margin-top:10px;font-style:italic;}
   .timer {font-weight:bold;color:#d00;margin-bottom:10px;}
+  #scoreCard {background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.1);max-width:500px;width:90%;margin:20px auto;text-align:center;display:none;}
+  .scoreCircle {width:80px;height:80px;border-radius:50%;margin:10px auto;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:bold;color:white;}
+  .win {background:#28a745;}
+  .lose {background:#dc3545;}
   #leaderboard {margin-top:20px;width:100%;}
   table {width:100%;border-collapse:collapse;}
   th,td {padding:8px;border-bottom:1px solid #ddd;text-align:center;}
@@ -42,6 +46,13 @@
   <div id="answers"></div>
   <div class="feedback" id="feedback"></div>
   <button id="nextBtn" class="btn-primary" style="margin-top:15px;display:none;" onclick="nextQuestion()">Soal Berikutnya</button>
+</div>
+
+<div id="scoreCard">
+  <h2>Skor Akhir</h2>
+  <div id="scoreCircle" class="scoreCircle"></div>
+  <p id="scoreText"></p>
+  <button class="btn-primary" onclick="showLeaderboard()">Lihat Leaderboard</button>
 </div>
 
 <div id="leaderboard" style="display:none;">
@@ -266,6 +277,24 @@ function nextQuestion(){
 
 function endGame(){
   document.getElementById("quizContainer").style.display="none";
+  document.getElementById("scoreCard").style.display="block";
+  const totalQuestions = questions.length;
+  const correctAnswers = Math.floor(score / 10);
+  const wrongAnswers = totalQuestions - correctAnswers;
+  const scoreCircle = document.getElementById("scoreCircle");
+  const scoreText = document.getElementById("scoreText");
+  scoreText.innerHTML = `Jawaban Benar: ${correctAnswers}<br>Jawaban Salah: ${wrongAnswers}`;
+  if (correctAnswers > wrongAnswers) {
+    scoreCircle.classList.add("win");
+    scoreCircle.textContent = "🏆";
+  } else {
+    scoreCircle.classList.add("lose");
+    scoreCircle.textContent = "😞";
+  }
+}
+
+function showLeaderboard(){
+  document.getElementById("scoreCard").style.display="none";
   document.getElementById("leaderboard").style.display="block";
   let board=JSON.parse(localStorage.getItem("leaderboard")||"[]");
   board.push({name:playerName,score});
@@ -280,6 +309,7 @@ function endGame(){
 
 function restartGame(){
   document.getElementById("leaderboard").style.display="none";
+  document.getElementById("scoreCard").style.display="none";
   document.getElementById("nameInputContainer").style.display="block";
   document.getElementById("playerName").value="";
 }
