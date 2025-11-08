@@ -56,40 +56,147 @@
 <script>
 // ==== DATA SOAL ====
 const questions = [
-  // --- Sejarah ---
+    // --- Sejarah ---
   {q:"Kapan proklamasi kemerdekaan Indonesia dibacakan?",a:["17 Agustus 1945"],choices:["17 Agustus 1945","18 Agustus 1945","10 November 1945","1 Juni 1945"],feedback:"Dibacakan oleh Soekarno dan Hatta pada 17 Agustus 1945 di Jakarta."},
-  {q:"Tokoh yang dikenal sebagai 'Bapak Koperasi Indonesia' adalah...",a:["Mohammad Hatta"],choices:["Ir. Soekarno","Mohammad Hatta","Ki Hajar Dewantara","Sutan Syahrir"],feedback:"Mohammad Hatta dikenal sebagai Bapak Koperasi Indonesia."},
+  {q:"Siapa presiden pertama Republik Indonesia?",a:["Ir. Soekarno"],choices:["Ir. Soekarno","Mohammad Hatta","Sutan Syahrir","Soedirman"],feedback:"Ir. Soekarno menjabat sebagai presiden pertama RI sejak 1945."},
+  {q:"Organisasi Budi Utomo berdiri pada tahun...",a:["1908"],choices:["1928","1905","1908","1910"],feedback:"Budi Utomo berdiri tahun 1908 dan menjadi tonggak kebangkitan nasional."},
+  {q:"Tokoh utama dalam peristiwa Rengasdengklok adalah...",a:["Soekarno dan Hatta"],choices:["Soedirman dan Gatot Subroto","Soekarno dan Hatta","Amir Sjarifuddin dan Sjahrir","Tan Malaka dan Hatta"],feedback:"Peristiwa Rengasdengklok melibatkan Soekarno dan Hatta yang diamankan oleh pemuda."},
+  {q:"BPUPKI dibentuk oleh Jepang pada tahun...",a:["1945"],choices:["1942","1943","1944","1945"],feedback:"BPUPKI dibentuk tahun 1945 untuk mempersiapkan kemerdekaan Indonesia."},
 
   // --- PPKN ---
-  {q:"Apa arti dari Pancasila sila ke-5?",a:["Keadilan sosial bagi seluruh rakyat Indonesia"],choices:["Persatuan Indonesia","Ketuhanan yang Maha Esa","Keadilan sosial bagi seluruh rakyat Indonesia","Kemanusiaan yang adil dan beradab"],feedback:"Sila ke-5 berbunyi 'Keadilan sosial bagi seluruh rakyat Indonesia'."},
-  {q:"Salah satu hak warga negara menurut UUD 1945 adalah...",a:["Hak memperoleh pendidikan"],choices:["Hak menjadi presiden","Hak memperoleh pendidikan","Hak membuat undang-undang","Hak mengadili"],feedback:"Pasal 31 UUD 1945 menjamin hak warga negara untuk memperoleh pendidikan."},
+  {q:"Apa arti dari Pancasila sila ke-2?",a:["Kemanusiaan yang adil dan beradab"],choices:["Ketuhanan Yang Maha Esa","Kemanusiaan yang adil dan beradab","Persatuan Indonesia","Kerakyatan yang dipimpin oleh hikmat kebijaksanaan"],feedback:"Sila ke-2 berbunyi 'Kemanusiaan yang adil dan beradab'."},
+  {q:"Undang-Undang Dasar Negara Republik Indonesia ditetapkan pada tahun...",a:["1945"],choices:["1945","1947","1949","1950"],feedback:"UUD 1945 ditetapkan bersamaan dengan proklamasi kemerdekaan."},
+  {q:"Lembaga yang berwenang menguji undang-undang terhadap UUD 1945 adalah...",a:["Mahkamah Konstitusi"],choices:["Mahkamah Agung","Mahkamah Konstitusi","DPR","BPK"],feedback:"MK memiliki wewenang melakukan judicial review terhadap undang-undang."},
+  {q:"Salah satu hak asasi manusia adalah...",a:["Hak hidup"],choices:["Hak bekerja","Hak hidup","Hak memilih","Hak mengatur negara"],feedback:"Hak hidup merupakan hak asasi yang paling mendasar."},
+  {q:"Lambang negara Indonesia adalah...",a:["Garuda Pancasila"],choices:["Bendera Merah Putih","Garuda Pancasila","Burung Rajawali","Singa Emas"],feedback:"Garuda Pancasila melambangkan kekuatan dan keutuhan bangsa Indonesia."},
 
   // --- Fisika ---
-  {q:"Hukum Ohm menyatakan bahwa...",a:["V = I × R"],choices:["V = I + R","V = I × R","P = V + I","I = V × R"],feedback:"Hukum Ohm: Tegangan (V) = Arus (I) × Hambatan (R)."},
-  {q:"Energi potensial gravitasi dirumuskan dengan...",a:["Ep = m × g × h"],choices:["Ek = ½mv²","Ep = m × g × h","W = F × s","P = W/t"],feedback:"Ep = m × g × h, m= massa, g= gravitasi, h= tinggi."},
+  {q:"Satuan gaya dalam SI adalah...",a:["Newton"],choices:["Joule","Watt","Newton","Pascal"],feedback:"Satuan gaya adalah Newton (N)."},
+  {q:"Alat untuk mengukur kuat arus listrik adalah...",a:["Amperemeter"],choices:["Voltmeter","Amperemeter","Ohmmeter","Galvanometer"],feedback:"Amperemeter digunakan untuk mengukur kuat arus listrik."},
+  {q:"Energi kinetik dirumuskan dengan...",a:["Ek = ½mv²"],choices:["Ep = mgh","Ek = ½mv²","W = F×s","P = W/t"],feedback:"Energi kinetik adalah ½ dikali massa dan kecepatan kuadrat."},
+  {q:"Cahaya termasuk gelombang...",a:["Elektromagnetik"],choices:["Mekanik","Elektromagnetik","Longitudinal","Transversal saja"],feedback:"Cahaya adalah gelombang elektromagnetik yang dapat merambat tanpa medium."},
+  {q:"Bunyi dapat merambat melalui...",a:["Zat padat, cair, dan gas"],choices:["Hanya udara","Zat padat, cair, dan gas","Vakum","Cahaya"],feedback:"Bunyi memerlukan medium seperti padat, cair, atau gas untuk merambat."},
+
+  // --- Kimia ---
+  {q:"Rumus kimia dari air adalah...",a:["H₂O"],choices:["CO₂","H₂O","O₂","NaCl"],feedback:"Air tersusun dari dua atom hidrogen dan satu atom oksigen."},
+  {q:"Atom terdiri dari partikel dasar yaitu...",a:["Proton, neutron, dan elektron"],choices:["Proton dan neutron","Elektron dan neutron","Proton, neutron, dan elektron","Neutron dan inti"],feedback:"Ketiga partikel dasar atom adalah proton, neutron, dan elektron."},
+  {q:"Nomor atom menunjukkan jumlah...",a:["Proton"],choices:["Neutron","Elektron","Proton","Massa atom"],feedback:"Nomor atom adalah jumlah proton di dalam inti atom."},
+  {q:"Unsur dengan lambang Fe adalah...",a:["Besi"],choices:["Fluor","Fosfor","Besi","Feron"],feedback:"Fe berasal dari kata Latin 'Ferrum' yang berarti besi."},
+];
+ // --- Biologi ---
+questions.push(
+  {q:"Bagian sel yang berfungsi sebagai pusat pengendali kegiatan sel adalah...",a:["Inti sel (nukleus)"],choices:["Mitokondria","Ribosom","Inti sel (nukleus)","Sitoplasma"],feedback:"Nukleus mengatur seluruh aktivitas sel dan menyimpan DNA."},
+  {q:"Proses fotosintesis berlangsung di...",a:["Kloroplas"],choices:["Kloroplas","Mitokondria","Nukleus","Lisosom"],feedback:"Fotosintesis berlangsung di kloroplas yang mengandung klorofil."},
+  {q:"Organ manusia yang berfungsi menyaring darah adalah...",a:["Ginjal"],choices:["Hati","Paru-paru","Jantung","Ginjal"],feedback:"Ginjal menyaring darah untuk menghasilkan urin."},
+  {q:"DNA merupakan singkatan dari...",a:["Deoxyribonucleic Acid"],choices:["Deoxyribonucleic Acid","Deoxynitric Acid","Double Nuclear Acid","Deoxygenated Nucleic Acid"],feedback:"DNA = Deoxyribonucleic Acid, menyimpan informasi genetik."},
+  {q:"Alat kelamin jantan pada bunga disebut...",a:["Benang sari"],choices:["Putik","Benang sari","Kelopak","Mahkota"],feedback:"Benang sari menghasilkan serbuk sari (gamet jantan)."},
 
   // --- Matematika ---
-  {q:"Turunan dari f(x) = 3x² adalah...",a:["6x"],choices:["3x","6x","x²","9x²"],feedback:"Turunan 3x² adalah 6x."},
-  {q:"Nilai dari sin(30°) adalah...",a:["0.5"],choices:["0.5","√3/2","1","0"],feedback:"sin(30°) = ½ = 0.5."},
+  {q:"Turunan dari f(x) = x³ adalah...",a:["3x²"],choices:["x²","3x²","x³","3x³"],feedback:"Turunan dari x³ adalah 3x²."},
+  {q:"Nilai dari cos(60°) adalah...",a:["0.5"],choices:["1","0.5","√3/2","0"],feedback:"cos(60°) = ½ = 0.5."},
+  {q:"Jika 2x + 3 = 9, maka nilai x adalah...",a:["3"],choices:["2","3","4","6"],feedback:"2x + 3 = 9 → 2x = 6 → x = 3."},
+  {q:"Luas lingkaran dengan jari-jari 7 cm adalah...",a:["154 cm²"],choices:["144 cm²","154 cm²","140 cm²","160 cm²"],feedback:"L = πr² = 22/7 × 7² = 154 cm²."},
+  {q:"Hasil dari (3x²)(2x³) adalah...",a:["6x⁵"],choices:["5x⁶","6x⁵","6x⁶","9x⁵"],feedback:"Kali koefisien dan jumlahkan pangkat: 3×2 =6 dan 2+3=5 → 6x⁵."},
 
   // --- Bahasa Indonesia ---
-  {q:"Kalimat efektif adalah...",a:["Kalimat yang lugas, jelas, dan tidak bertele-tele"],choices:["Kalimat yang panjang","Kalimat yang berima","Kalimat yang lugas, jelas, dan tidak bertele-tele","Kalimat yang memiliki banyak kata"],feedback:"Kalimat efektif menyampaikan gagasan secara lugas dan tepat."},
-  {q:"Sinonim dari kata 'mandiri' adalah...",a:["Berdikari"],choices:["Bersama","Berani","Berdikari","Berbeda"],feedback:"Mandiri berarti berdiri di atas kemampuan sendiri, sinonimnya 'Berdikari'."},
+  {q:"Antonim dari kata 'optimis' adalah...",a:["pesimis"],choices:["percaya diri","semangat","pesimis","ragu"],feedback:"Lawan kata optimis adalah pesimis."},
+  {q:"Kalimat aktif dari 'Buku itu dibaca oleh Rani' adalah...",a:["Rani membaca buku itu"],choices:["Buku itu membaca Rani","Rani membaca buku itu","Rani dibaca oleh buku itu","Buku itu Rani baca oleh"],feedback:"Kalimat aktif: subjek melakukan pekerjaan → 'Rani membaca buku itu'."},
+  {q:"Kata baku dari 'resiko' adalah...",a:["risiko"],choices:["resiko","risiko","resicko","resiqo"],feedback:"Menurut KBBI, bentuk baku yang benar adalah 'risiko'."},
+  {q:"Unsur intrinsik cerpen meliputi...",a:["Tema, tokoh, alur, latar, amanat"],choices:["Tema, tokoh, sinopsis, judul","Penulis, tema, ilustrasi","Tema, tokoh, alur, latar, amanat","Latar, ending, cover"],feedback:"Unsur intrinsik adalah yang membangun karya dari dalam."},
+  {q:"Kalimat yang menggunakan majas personifikasi adalah...",a:["Angin malam berbisik lirih di telinga"],choices:["Aku belajar dengan tekun","Ayah membaca koran","Angin malam berbisik lirih di telinga","Kami pergi ke pasar"],feedback:"Personifikasi memberi sifat manusia pada benda mati."},
 
   // --- Bahasa Inggris ---
-  {q:"The past tense of 'go' is...",a:["went"],choices:["gone","goes","went","going"],feedback:"Past tense dari 'go' adalah 'went'."},
-  {q:"Choose the correct sentence: ...",a:["She is reading a book"],choices:["She read a book now","She is reading a book","She reads a book now","She reading a book"],feedback:"Present continuous tense: 'She is reading a book'."},
+  {q:"The plural form of 'child' is...",a:["children"],choices:["childs","childes","children","child"],feedback:"Irregular plural form: child → children."},
+  {q:"Choose the correct translation: 'Saya sudah makan' = ...",a:["I have eaten"],choices:["I eat","I have eat","I have eaten","I eating"],feedback:"Present perfect tense: 'have + past participle' → I have eaten."},
+  {q:"The opposite of 'expensive' is...",a:["cheap"],choices:["cheap","pricey","valuable","luxury"],feedback:"Antonym of 'expensive' is 'cheap'."},
+  {q:"He ___ to school every day.",a:["goes"],choices:["go","goes","going","gone"],feedback:"Untuk subjek he/she/it → pakai 'goes'."},
+  {q:"They have lived here ___ 2010.",a:["since"],choices:["for","since","at","in"],feedback:"Gunakan 'since' untuk titik waktu tertentu."}
+);
+// --- Ekonomi ---
+questions.push(
+  {q:"Ilmu ekonomi membahas tentang...",a:["Cara manusia memenuhi kebutuhan dengan sumber daya yang terbatas"],choices:["Cara menambah kekayaan negara","Cara manusia memenuhi kebutuhan dengan sumber daya yang terbatas","Cara memproduksi barang mewah","Cara mencetak uang"],feedback:"Ekonomi mempelajari perilaku manusia dalam mengelola sumber daya yang terbatas untuk memenuhi kebutuhan."},
+  {q:"Hukum permintaan menyatakan bahwa jika harga naik, maka jumlah barang yang diminta akan...",a:["menurun"],choices:["meningkat","tetap","menurun","tidak berubah"],feedback:"Hukum permintaan: harga naik → jumlah diminta turun (ceteris paribus)."},
+  {q:"Bank Indonesia berfungsi sebagai...",a:["Bank sentral"],choices:["Bank swasta","Bank pemerintah","Bank sentral","Bank daerah"],feedback:"Bank Indonesia adalah bank sentral yang mengatur kebijakan moneter."},
+  {q:"Kegiatan ekonomi meliputi...",a:["Produksi, distribusi, dan konsumsi"],choices:["Produksi dan konsumsi","Produksi saja","Produksi, distribusi, dan konsumsi","Distribusi dan penjualan"],feedback:"Tiga kegiatan utama ekonomi: produksi, distribusi, konsumsi."},
+  {q:"Pendapatan nasional diukur dengan indikator...",a:["Produk Domestik Bruto (PDB)"],choices:["Upah minimum","Produk Domestik Bruto (PDB)","Laju inflasi","Cadangan devisa"],feedback:"PDB mencerminkan total nilai barang dan jasa yang diproduksi dalam suatu negara."},
 
-  // --- Biologi ---
-  {q:"Organel sel yang berfungsi menghasilkan energi adalah...",a:["Mitokondria"],choices:["Nukleus","Ribosom","Mitokondria","Lisosom"],feedback:"Mitokondria sering disebut 'powerhouse of the cell'."},
-  {q:"Fotosintesis terjadi di bagian tumbuhan yang mengandung...",a:["Klorofil"],choices:["Xilem","Klorofil","Floem","Akar"],feedback:"Fotosintesis terjadi di kloroplas yang mengandung klorofil."}
-];
-// Ulang-ulang data untuk mencapai 100 soal (biar ringkas contoh ini saja)
-while (questions.length < 100) questions.push(...questions.slice(0,14));
-questions.length = 100;
+  // --- Geografi ---
+  {q:"Lapisan bumi yang paling luar disebut...",a:["Litosfer"],choices:["Astenosfer","Litosfer","Inti bumi","Mantel"],feedback:"Litosfer merupakan lapisan padat paling luar dari bumi."},
+  {q:"Garis khatulistiwa berada pada lintang...",a:["0°"],choices:["0°","23,5° LU","23,5° LS","90° LU"],feedback:"Garis khatulistiwa berada di lintang 0° membagi bumi jadi dua belahan."},
+  {q:"Gunung berapi yang tidak pernah meletus lagi disebut...",a:["Gunung mati"],choices:["Gunung aktif","Gunung tidur","Gunung mati","Gunung purba"],feedback:"Gunung mati sudah tidak memiliki aktivitas vulkanik lagi."},
+  {q:"Benua terbesar di dunia adalah...",a:["Asia"],choices:["Afrika","Amerika","Asia","Eropa"],feedback:"Benua Asia merupakan yang terbesar luasnya di dunia."},
+  {q:"Alat untuk mengukur gempa bumi disebut...",a:["Seismograf"],choices:["Barometer","Termometer","Seismograf","Altimeter"],feedback:"Seismograf mencatat getaran dan kekuatan gempa."},
+
+  // --- Sosiologi ---
+  {q:"Sosiologi adalah ilmu yang mempelajari...",a:["Masyarakat dan interaksi sosialnya"],choices:["Kebudayaan","Masyarakat dan interaksi sosialnya","Sejarah manusia","Sistem ekonomi"],feedback:"Sosiologi mempelajari perilaku sosial dan hubungan antar manusia."},
+  {q:"Nilai sosial adalah...",a:["Ukuran baik atau buruknya suatu tindakan menurut masyarakat"],choices:["Peraturan hukum","Ukuran baik atau buruknya suatu tindakan menurut masyarakat","Aturan pemerintah","Kebijakan publik"],feedback:"Nilai sosial menjadi pedoman perilaku dalam masyarakat."},
+  {q:"Lembaga sosial yang berperan dalam pendidikan adalah...",a:["Sekolah"],choices:["Keluarga","Sekolah","Pemerintah","Media"],feedback:"Sekolah merupakan lembaga sosial formal di bidang pendidikan."},
+  {q:"Proses belajar menyesuaikan diri dengan lingkungan sosial disebut...",a:["Sosialisasi"],choices:["Adaptasi","Sosialisasi","Asimilasi","Akomodasi"],feedback:"Sosialisasi membantu individu mengenal norma dan nilai masyarakat."},
+  {q:"Perubahan sosial cepat yang menyentuh sendi kehidupan disebut...",a:["Revolusi"],choices:["Evolusi","Reformasi","Revolusi","Modernisasi"],feedback:"Revolusi adalah perubahan besar dan cepat dalam struktur sosial."},
+
+  // --- Informatika ---
+  {q:"CPU merupakan singkatan dari...",a:["Central Processing Unit"],choices:["Central Programming Unit","Central Processing Unit","Computer Program Unit","Central Peripheral Unit"],feedback:"CPU adalah otak komputer yang mengolah data dan instruksi."},
+  {q:"Fungsi utama sistem operasi adalah...",a:["Mengatur dan mengelola sumber daya komputer"],choices:["Menjalankan hardware","Menambah kapasitas RAM","Mengatur dan mengelola sumber daya komputer","Menghapus virus"],feedback:"Sistem operasi bertugas mengatur hardware, software, dan user."},
+  {q:"Bahasa pemrograman yang digunakan untuk membuat website dinamis antara lain...",a:["JavaScript"],choices:["HTML","CSS","JavaScript","Photoshop"],feedback:"JavaScript digunakan untuk membuat website interaktif dan dinamis."},
+  {q:"Ekstensi file untuk dokumen Microsoft Word adalah...",a:[".docx"],choices:[".exe",".pdf",".docx",".txt"],feedback:"File dokumen Word modern berekstensi .docx."},
+  {q:"Perangkat keras untuk menyimpan data secara permanen adalah...",a:["Harddisk"],choices:["RAM","Monitor","Harddisk","Printer"],feedback:"Harddisk menyimpan data dan program secara permanen."}
+);
+ // --- Seni Budaya ---
+questions.push(
+  {q:"Unsur utama dalam seni rupa adalah...",a:["Garis, warna, bentuk, tekstur, ruang"],choices:["Nada, irama, tempo","Garis, warna, bentuk, tekstur, ruang","Dialog, akting, panggung","Bunyi, nada, tempo"],feedback:"Unsur utama seni rupa meliputi garis, warna, bentuk, tekstur, dan ruang."},
+  {q:"Lukisan yang menggambarkan pemandangan alam disebut...",a:["Lukisan pemandangan"],choices:["Lukisan potret","Lukisan pemandangan","Lukisan abstrak","Lukisan dekoratif"],feedback:"Lukisan pemandangan menampilkan keindahan alam seperti gunung, sawah, atau laut."},
+  {q:"Alat musik gitar termasuk dalam jenis alat musik...",a:["Kordofon"],choices:["Aerofon","Kordofon","Membranofon","Idiofon"],feedback:"Kordofon adalah alat musik yang menghasilkan bunyi dari senar atau dawai."},
+  {q:"Tari Saman berasal dari daerah...",a:["Aceh"],choices:["Aceh","Bali","Jawa Tengah","Papua"],feedback:"Tari Saman berasal dari suku Gayo, Aceh, dan dikenal karena kekompakannya."},
+  {q:"Seni teater merupakan cabang seni yang menggabungkan...",a:["Gerak, dialog, dan ekspresi"],choices:["Lukisan dan tari","Gerak, dialog, dan ekspresi","Musik dan rupa","Puisi dan tari"],feedback:"Teater memadukan unsur akting, dialog, dan ekspresi dalam pementasan."},
+
+  // --- PJOK ---
+  {q:"Kemampuan tubuh untuk melakukan aktivitas tanpa kelelahan berarti...",a:["Kebugaran jasmani"],choices:["Kesehatan jasmani","Kekuatan otot","Kebugaran jasmani","Koordinasi tubuh"],feedback:"Kebugaran jasmani menunjukkan kemampuan tubuh beraktivitas optimal tanpa cepat lelah."},
+  {q:"Latihan push-up bertujuan untuk melatih otot...",a:["Lengan dan dada"],choices:["Kaki","Lengan dan dada","Perut","Leher"],feedback:"Push-up menguatkan otot lengan, bahu, dan dada."},
+  {q:"Permainan bulu tangkis menggunakan alat yang disebut...",a:["Raket"],choices:["Tongkat","Raket","Bet","Pukul bola"],feedback:"Bulu tangkis dimainkan dengan raket dan shuttlecock."},
+  {q:"Jumlah pemain dalam satu tim sepak bola adalah...",a:["11 orang"],choices:["7 orang","9 orang","11 orang","12 orang"],feedback:"Satu tim sepak bola terdiri dari 11 pemain termasuk penjaga gawang."},
+  {q:"Pemanasan sebelum olahraga bertujuan untuk...",a:["Mencegah cedera dan mempersiapkan otot"],choices:["Menambah berat badan","Meningkatkan detak jantung","Mencegah cedera dan mempersiapkan otot","Membakar lemak"],feedback:"Pemanasan meningkatkan elastisitas otot dan mengurangi risiko cedera."},
+
+  // --- Campuran Umum SMA ---
+  {q:"Sistem pemerintahan Indonesia adalah...",a:["Presidensial"],choices:["Parlementer","Monarki","Presidensial","Federal"],feedback:"Indonesia menganut sistem presidensial dengan presiden sebagai kepala negara dan pemerintahan."},
+  {q:"Nama lain dari planet merah adalah...",a:["Mars"],choices:["Venus","Mars","Jupiter","Saturnus"],feedback:"Planet Mars disebut planet merah karena permukaannya berwarna kemerahan."},
+  {q:"Unsur paling banyak di kerak bumi adalah...",a:["Oksigen"],choices:["Besi","Oksigen","Karbon","Kalsium"],feedback:"Sekitar 46% kerak bumi terdiri dari unsur oksigen."},
+  {q:"Perubahan wujud dari gas menjadi cair disebut...",a:["Kondensasi"],choices:["Sublimasi","Kondensasi","Evaporasi","Pembekuan"],feedback:"Kondensasi terjadi ketika gas berubah menjadi cair karena pendinginan."},
+  {q:"Perangkat lunak pengolah angka adalah...",a:["Microsoft Excel"],choices:["Microsoft Word","Microsoft Excel","CorelDRAW","Photoshop"],feedback:"Microsoft Excel digunakan untuk mengolah data berbentuk tabel dan angka."},
+  {q:"Puisi yang terdiri atas empat baris setiap bait disebut...",a:["Pantun"],choices:["Syair","Gurindam","Pantun","Puisi bebas"],feedback:"Pantun terdiri dari empat baris, bersajak a-b-a-b."},
+  {q:"Negara tetangga Indonesia yang berbentuk kerajaan adalah...",a:["Malaysia"],choices:["Singapura","Thailand","Malaysia","Filipina"],feedback:"Malaysia memiliki sistem pemerintahan monarki konstitusional."},
+  {q:"Alat untuk mengukur suhu adalah...",a:["Termometer"],choices:["Barometer","Altimeter","Termometer","Higrometer"],feedback:"Termometer digunakan untuk mengukur suhu atau temperatur."},
+  {q:"Penemu bola lampu adalah...",a:["Thomas Alva Edison"],choices:["Alexander Graham Bell","Thomas Alva Edison","Albert Einstein","Nikola Tesla"],feedback:"Thomas Edison menemukan bola lampu pijar modern."},
+  {q:"Ibukota Australia adalah...",a:["Canberra"],choices:["Sydney","Melbourne","Canberra","Perth"],feedback:"Canberra adalah ibukota resmi Australia, bukan Sydney."}
+);
+// --- Campuran Umum SMA (lanjutan) ---
+questions.push(
+  {q:"Planet terbesar di tata surya adalah...",a:["Jupiter"],choices:["Bumi","Jupiter","Saturnus","Neptunus"],feedback:"Jupiter merupakan planet terbesar di tata surya dengan ukuran 1.300 kali bumi."},
+  {q:"Nama ilmiah dari manusia adalah...",a:["Homo sapiens"],choices:["Homo erectus","Homo sapiens","Homo habilis","Homo floresiensis"],feedback:"Homo sapiens berarti manusia bijaksana."},
+  {q:"Proklamator kemerdekaan Indonesia adalah...",a:["Soekarno dan Hatta"],choices:["Soekarno dan Hatta","Soedirman dan Hatta","Sjahrir dan Soedirman","Tan Malaka dan Hatta"],feedback:"Soekarno dan Hatta membacakan proklamasi pada 17 Agustus 1945."},
+  {q:"Lambang unsur natrium dalam tabel periodik adalah...",a:["Na"],choices:["N","Na","S","K"],feedback:"Na berasal dari kata Latin 'Natrium'."},
+  {q:"Negara dengan jumlah penduduk terbanyak di dunia adalah...",a:["Cina"],choices:["India","Amerika Serikat","Cina","Indonesia"],feedback:"Cina memiliki penduduk terbanyak di dunia, lebih dari 1,4 miliar jiwa."},
+  {q:"Hukum Newton pertama dikenal juga sebagai...",a:["Hukum kelembaman"],choices:["Hukum gaya","Hukum kelembaman","Hukum aksi reaksi","Hukum gravitasi"],feedback:"Hukum Newton I menyatakan benda cenderung mempertahankan keadaannya jika tidak ada gaya yang bekerja."},
+  {q:"Bentuk pemerintahan di Indonesia adalah...",a:["Republik"],choices:["Kerajaan","Monarki","Republik","Federasi"],feedback:"Indonesia berbentuk Republik dengan presiden sebagai kepala negara."},
+  {q:"Gunung tertinggi di dunia adalah...",a:["Gunung Everest"],choices:["Gunung Kilimanjaro","Gunung Everest","Gunung Elbrus","Gunung Denali"],feedback:"Gunung Everest memiliki ketinggian sekitar 8.848 meter di atas permukaan laut."},
+  {q:"Simbol kimia untuk emas adalah...",a:["Au"],choices:["Ag","Fe","Au","Cu"],feedback:"Au berasal dari kata Latin 'Aurum' yang berarti emas."},
+  {q:"Pulau terbesar di Indonesia adalah...",a:["Kalimantan"],choices:["Sumatra","Jawa","Sulawesi","Kalimantan"],feedback:"Kalimantan adalah pulau terbesar di Indonesia dengan luas ±743 ribu km²."},
+  {q:"Rumus luas segitiga adalah...",a:["½ × alas × tinggi"],choices:["alas × tinggi","½ × alas × tinggi","alas + tinggi","2 × alas × tinggi"],feedback:"L = ½ × a × t → setengah hasil kali alas dan tinggi."},
+  {q:"Fungsi utama paru-paru adalah...",a:["Pertukaran oksigen dan karbon dioksida"],choices:["Mencerna makanan","Memompa darah","Pertukaran oksigen dan karbon dioksida","Menyaring darah"],feedback:"Paru-paru menukar gas O₂ dan CO₂ saat proses pernapasan."},
+  {q:"Sumber energi utama bagi manusia adalah...",a:["Karbohidrat"],choices:["Protein","Lemak","Vitamin","Karbohidrat"],feedback:"Karbohidrat diubah menjadi glukosa yang menghasilkan energi."},
+  {q:"Lagu kebangsaan Indonesia adalah...",a:["Indonesia Raya"],choices:["Garuda Pancasila","Indonesia Pusaka","Indonesia Raya","Tanah Airku"],feedback:"'Indonesia Raya' diciptakan oleh W.R. Supratman."},
+  {q:"Gunung Krakatau terletak di antara pulau...",a:["Jawa dan Sumatra"],choices:["Jawa dan Bali","Sumatra dan Kalimantan","Jawa dan Sumatra","Sulawesi dan Maluku"],feedback:"Gunung Krakatau berada di Selat Sunda antara Jawa dan Sumatra."},
+  {q:"Pencipta teori evolusi adalah...",a:["Charles Darwin"],choices:["Isaac Newton","Albert Einstein","Charles Darwin","Gregor Mendel"],feedback:"Charles Darwin menulis 'On the Origin of Species' tentang evolusi melalui seleksi alam."},
+  {q:"Bentuk partisipasi warga dalam demokrasi adalah...",a:["Mengikuti pemilihan umum"],choices:["Menolak pajak","Mengikuti pemilihan umum","Menentang hukum","Mengabaikan aturan"],feedback:"Pemilu adalah wujud langsung partisipasi rakyat dalam demokrasi."},
+  {q:"Hasil utama fotosintesis adalah...",a:["Glukosa dan oksigen"],choices:["Air dan oksigen","Glukosa dan oksigen","Karbon dioksida dan air","Glukosa dan karbon dioksida"],feedback:"Fotosintesis menghasilkan glukosa (C₆H₁₂O₆) dan O₂."},
+  {q:"Batas antara dua lempeng tektonik disebut...",a:["Patahan"],choices:["Gunung","Patahan","Dataran tinggi","Lembah"],feedback:"Patahan (fault) adalah batas tempat dua lempeng saling bergeser atau bertumbukan."},
+  {q:"Organisasi dunia yang bertujuan menjaga perdamaian adalah...",a:["PBB"],choices:["ASEAN","Uni Eropa","PBB","NATO"],feedback:"PBB (Perserikatan Bangsa-Bangsa) berdiri tahun 1945 untuk menjaga perdamaian dunia."}
+);
+
+// Acak urutan soal (optional)
+questions.sort(() => Math.random() - 0.5);
 
 // ==== VARIABEL ====
-let current = 0, score = 0, playerName = "", timer, timeLeft = 30;
+let current = 0, score = 0, playerName = "", timer, timeLeft = 45;
 
 // ==== FUNGSI ====
 function startGame(){
